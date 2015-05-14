@@ -1,0 +1,25 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xs:schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/dbQuery" xmlns="http://xmlns.oracle.com/pcbpel/adapter/db/dbQuery" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:element name="dbQueryInput" type="dbQueryInput"/>
+   <xs:complexType name="dbQueryInput">
+      <xs:sequence>
+         <xs:element name="department_id" type="xs:decimal" nillable="true"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:element name="dbQueryOutputCollection" type="dbQueryOutputCollection"/>
+   <xs:complexType name="dbQueryOutputCollection">
+      <xs:sequence>
+         <xs:element name="dbQueryOutput" type="dbQueryOutput" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dbQueryOutput">
+      <xs:sequence>
+         <xs:element name="employee_id" type="xs:decimal" nillable="true"/>
+         <xs:element name="employee_mgr_id" type="xs:decimal" nillable="true"/>
+         <xs:element name="department_mgr_id" type="xs:decimal" nillable="true"/>
+         <xs:element name="d_department_name" type="xs:string" nillable="true"/>
+         <xs:element name="employee_name" type="xs:string" nillable="true"/>
+         <xs:element name="e_salary" type="xs:decimal" nillable="true"/>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema>

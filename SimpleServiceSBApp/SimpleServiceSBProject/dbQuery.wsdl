@@ -1,0 +1,24 @@
+<wsdl:definitions name="dbQuery" targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/SOASimpleServiceApp/SimpleServiceProject/dbQuery" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/SOASimpleServiceApp/SimpleServiceProject/dbQuery" xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/dbQuery" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <plt:partnerLinkType name="dbQuery_plt">
+    <plt:role name="dbQuery_role">
+      <plt:portType name="tns:dbQuery_ptt"/>
+    </plt:role>
+  </plt:partnerLinkType>
+    <wsdl:types>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema">
+        <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/dbQuery" schemaLocation="../Schemas/dbQuery.xsd"/>
+      </schema>
+    </wsdl:types>
+    <wsdl:message name="dbQueryInput_msg">
+        <wsdl:part name="dbQueryInput_msg" element="db:dbQueryInput"/>
+    </wsdl:message>
+    <wsdl:message name="dbQueryOutputCollection_msg">
+        <wsdl:part name="dbQueryOutputCollection" element="db:dbQueryOutputCollection"/>
+    </wsdl:message>
+    <wsdl:portType name="dbQuery_ptt">
+        <wsdl:operation name="dbQuery">
+            <wsdl:input message="tns:dbQueryInput_msg"/>
+            <wsdl:output message="tns:dbQueryOutputCollection_msg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

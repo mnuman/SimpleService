@@ -1,0 +1,26 @@
+<adapter-config name="dbQuery" adapter="db" wsdlLocation="../WSDLs/dbQuery.wsdl" xmlns="http://platform.integration.oracle/blocks/adapter/fw/metadata">
+  
+  <connection-factory UIConnectionName="db" location="eis/DB/HR"/>
+  <endpoint-interaction portType="dbQuery_ptt" operation="dbQuery">
+    <interaction-spec className="oracle.tip.adapter.db.DBPureSQLInteractionSpec">
+      <property name="SqlString" value="select e.employee_id as employee_id
+,      em.employee_id as employee_mgr_id
+,      dm.employee_id department_mgr_id
+,      d.department_name
+,      e.first_name || ' ' || e.last_name as employee_name
+,      e.salary
+,      loc.city
+from   employees e
+left outer join departments d on e.department_id = d.department_id
+left outer join employees em on e.manager_id = em.employee_id
+left outer join employees dm on d.manager_id = dm.employee_id
+left outer join locations loc on loc.location_id = d.location_id
+where     d.department_id = #department_id
+order by d.department_name, e.last_name
+"/>
+      <property name="MaxRows" value="300"/>
+      <property name="GetActiveUnitOfWork" value="false"/>
+    </interaction-spec>
+  </endpoint-interaction>
+
+</adapter-config>

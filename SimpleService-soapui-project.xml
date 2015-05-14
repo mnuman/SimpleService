@@ -1,0 +1,883 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="01a509de-2d78-4a33-96c3-d5eb74dd74f7" activeEnvironment="Default" name="SimpleService" resourceRoot="" soapui-version="5.1.3" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="85f71d6b-b435-4fd9-874a-4331920f46bf" wsaVersion="NONE" name="SOASimpleService" type="wsdl" bindingName="{http://xmlns.oracle.com/pcbpel/adapter/db/SOASimpleServiceApp/SimpleServiceProject/dbQuery}dbQuery_pttBinding" soapVersion="1_1" anonymous="optional" definition="http://soa2admin2.example.com:8001/soa-infra/services/default/SimpleServiceProject/soadbbpel_client_ep?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://soa2admin2.example.com:8001/soa-infra/services/default/SimpleServiceProject/soadbbpel_client_ep?WSDL"><con:part><con:url>http://soa2admin2.example.com:8001/soa-infra/services/default/SimpleServiceProject/soadbbpel_client_ep?WSDL</con:url><con:content><![CDATA[<wsdl:definitions name="dbQuery" targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/SOASimpleServiceApp/SimpleServiceProject/dbQuery" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/SOASimpleServiceApp/SimpleServiceProject/dbQuery" xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/dbQuery" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:documentation>
+    <abstractWSDL>http://soa2admin2.example.com:8001/soa-infra/services/default/SimpleServiceProject!1.0/WSDLs/dbQuery.wsdl</abstractWSDL>
+  </wsdl:documentation>
+  <plt:partnerLinkType name="dbQuery_plt">
+    <plt:role name="dbQuery_role">
+      <plt:portType name="tns:dbQuery_ptt"/>
+    </plt:role>
+  </plt:partnerLinkType>
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+      <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/dbQuery" schemaLocation="http://soa2admin2.example.com:8001/soa-infra/services/default/SimpleServiceProject/soadbbpel_client_ep?XSD=../Schemas/dbQuery.xsd"/>
+    </schema>
+  </wsdl:types>
+  <wsdl:message name="dbQueryInput_msg">
+    <wsdl:part name="dbQueryInput_msg" element="db:dbQueryInput"/>
+  </wsdl:message>
+  <wsdl:message name="dbQueryOutputCollection_msg">
+    <wsdl:part name="dbQueryOutputCollection" element="db:dbQueryOutputCollection"/>
+  </wsdl:message>
+  <wsdl:portType name="dbQuery_ptt">
+    <wsdl:operation name="dbQuery">
+      <wsdl:input message="tns:dbQueryInput_msg"/>
+      <wsdl:output message="tns:dbQueryOutputCollection_msg"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="dbQuery_pttBinding" type="tns:dbQuery_ptt">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="dbQuery">
+      <soap:operation style="document" soapAction="dbQuery"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="soadbbpel_client_ep">
+    <wsdl:port name="dbQuery_pt" binding="tns:dbQuery_pttBinding">
+      <soap:address location="http://soa2admin2.example.com:8001/soa-infra/services/default/SimpleServiceProject/soadbbpel_client_ep"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://soa2admin2.example.com:8001/soa-infra/services/default/SimpleServiceProject/soadbbpel_client_ep?XSD=../Schemas/dbQuery.xsd</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/dbQuery" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns="http://xmlns.oracle.com/pcbpel/adapter/db/dbQuery" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="dbQueryInput" type="dbQueryInput"/>
+  <xs:complexType name="dbQueryInput">
+    <xs:sequence>
+      <xs:element name="department_id" type="xs:decimal" nillable="true"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dbQueryOutputCollection" type="dbQueryOutputCollection"/>
+  <xs:complexType name="dbQueryOutputCollection">
+    <xs:sequence>
+      <xs:element name="dbQueryOutput" type="dbQueryOutput" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dbQueryOutput">
+    <xs:sequence>
+      <xs:element name="employee_id" type="xs:decimal" nillable="true"/>
+      <xs:element name="employee_mgr_id" type="xs:decimal" nillable="true"/>
+      <xs:element name="department_mgr_id" type="xs:decimal" nillable="true"/>
+      <xs:element name="d_department_name" type="xs:string" nillable="true"/>
+      <xs:element name="employee_name" type="xs:string" nillable="true"/>
+      <xs:element name="e_salary" type="xs:decimal" nillable="true"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://soa2admin2.example.com:8001/soa-infra/services/default/SimpleServiceProject/soadbbpel_client_ep</con:endpoint></con:endpoints><con:operation id="71d5fd09-d202-4dce-95d4-f8317ab86b16" isOneWay="false" action="dbQuery" name="dbQuery" bindingOperationName="dbQuery" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="316585cc-5d65-49c0-8d42-545d434b4fab" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://soa2admin2.example.com:8001/soa-infra/services/default/SimpleServiceProject/soadbbpel_client_ep</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dbq="http://xmlns.oracle.com/pcbpel/adapter/db/dbQuery">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <dbq:dbQueryInput>
+         <dbq:department_id>50</dbq:department_id>
+      </dbq:dbQueryInput>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="dbQuery"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="6a76f59a-25c6-4d7b-8420-b9bee4c0ba63" wsaVersion="NONE" name="execute_bind" type="wsdl" bindingName="{http://xmlns.oracle.com/SimpleServiceSBApp/SimpleServiceSBProject/plSimpleService}execute_bind" soapVersion="1_1" anonymous="optional" definition="http://soa2admin2.example.com:8011/SimpleServiceSB?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://soa2admin2.example.com:8011/SimpleServiceSB?WSDL"><con:part><con:url>http://soa2admin2.example.com:8011/SimpleServiceSB?WSDL</con:url><con:content><![CDATA[<WL5G3N0:definitions name="plSimpleService" targetNamespace="http://xmlns.oracle.com/SimpleServiceSBApp/SimpleServiceSBProject/plSimpleService" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://xmlns.oracle.com/pcbpel/adapter/db/dbQuery" xmlns:WL5G3N2="http://xmlns.oracle.com/SimpleServiceSBApp/SimpleServiceSBProject/plSimpleService" xmlns:WL5G3N3="http://schemas.xmlsoap.org/wsdl/soap/">
+  <WL5G3N0:types>
+    <xsd:schema xmlns:inp1="http://xmlns.oracle.com/pcbpel/adapter/db/dbQuery" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://xmlns.oracle.com/SimpleServiceSBApp/SimpleServiceSBProject/plSimpleService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/dbQuery" schemaLocation="http://soa2admin2.example.com:8011/SimpleServiceSB?SCHEMA%2FSchemas%2FdbQuery"/>
+    </xsd:schema>
+  </WL5G3N0:types>
+  <WL5G3N0:message name="requestMessage">
+    <WL5G3N0:part element="WL5G3N1:dbQueryInput" name="payload"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="replyMessage">
+    <WL5G3N0:part element="WL5G3N1:dbQueryOutputCollection" name="payload"/>
+  </WL5G3N0:message>
+  <WL5G3N0:portType name="execute_ptt">
+    <WL5G3N0:operation name="execute">
+      <WL5G3N0:input message="WL5G3N2:requestMessage"/>
+      <WL5G3N0:output message="WL5G3N2:replyMessage"/>
+    </WL5G3N0:operation>
+  </WL5G3N0:portType>
+  <WL5G3N0:binding name="execute_bind" type="WL5G3N2:execute_ptt">
+    <WL5G3N3:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <WL5G3N0:operation name="execute">
+      <WL5G3N3:operation soapAction="execute" style="document"/>
+      <WL5G3N0:input>
+        <WL5G3N3:body namespace="http://xmlns.oracle.com/SimpleServiceSBApp/SimpleServiceSBProject/plSimpleService" use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N3:body namespace="http://xmlns.oracle.com/SimpleServiceSBApp/SimpleServiceSBProject/plSimpleService" use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+  </WL5G3N0:binding>
+  <WL5G3N0:service name="execute_bindQSService">
+    <WL5G3N0:documentation>OSB Service</WL5G3N0:documentation>
+    <WL5G3N0:port binding="WL5G3N2:execute_bind" name="execute_bindQSPort">
+      <WL5G3N3:address location="http://soa2admin2.example.com:8011/SimpleServiceSB"/>
+    </WL5G3N0:port>
+  </WL5G3N0:service>
+</WL5G3N0:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://soa2admin2.example.com:8011/SimpleServiceSB?SCHEMA%2FSchemas%2FdbQuery</con:url><con:content><![CDATA[<xs:schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/dbQuery" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns="http://xmlns.oracle.com/pcbpel/adapter/db/dbQuery" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="dbQueryInput" type="dbQueryInput"/>
+  <xs:complexType name="dbQueryInput">
+    <xs:sequence>
+      <xs:element name="department_id" type="xs:decimal" nillable="true"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="dbQueryOutputCollection" type="dbQueryOutputCollection"/>
+  <xs:complexType name="dbQueryOutputCollection">
+    <xs:sequence>
+      <xs:element name="dbQueryOutput" type="dbQueryOutput" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="dbQueryOutput">
+    <xs:sequence>
+      <xs:element name="employee_id" type="xs:decimal" nillable="true"/>
+      <xs:element name="employee_mgr_id" type="xs:decimal" nillable="true"/>
+      <xs:element name="department_mgr_id" type="xs:decimal" nillable="true"/>
+      <xs:element name="d_department_name" type="xs:string" nillable="true"/>
+      <xs:element name="employee_name" type="xs:string" nillable="true"/>
+      <xs:element name="e_salary" type="xs:decimal" nillable="true"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://soa2admin2.example.com:8011/SimpleServiceSB</con:endpoint></con:endpoints><con:operation id="254e9a22-4a03-46e5-994a-e9394137d246" isOneWay="false" action="execute" name="execute" bindingOperationName="execute" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="695cb656-c214-4a94-a2ca-012641ad53c2" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://soa2admin2.example.com:8011/SimpleServiceSB</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dbq="http://xmlns.oracle.com/pcbpel/adapter/db/dbQuery">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <dbq:dbQueryInput>
+         <dbq:department_id>50</dbq:department_id>
+      </dbq:dbQueryInput>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="execute"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite id="e3741740-6530-43ba-bd5e-3cc1cca90c02" name="TestSOAvsOSB"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="b6f8cd47-c593-4710-92e9-24f319e1dd3c" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Dept50" searchProperties="true"><con:settings/><con:testStep type="request" name="OSB" id="20af9afb-d9b5-46ad-9f95-a3424ace2e08"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>execute_bind</con:interface><con:operation>execute</con:operation><con:request name="OSB" id="917cbcb1-ac18-425c-abc6-8f45a6ded0e1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://soa2admin2.example.com:8011/SimpleServiceSB</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dbq="http://xmlns.oracle.com/pcbpel/adapter/db/dbQuery">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <dbq:dbQueryInput>
+         <dbq:department_id>50</dbq:department_id>
+      </dbq:dbQueryInput>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="865ab1c6-7de6-49b9-a3b4-97728639e273"/><con:assertion type="Schema Compliance" id="46bd695c-6de2-48b6-9937-7dc00b779d72"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="dff8fedf-ff85-45c0-ae74-1001ec5efcb5"/><con:assertion type="XPath Match" id="5e61a059-05d5-4d97-9d00-360d54a45719" name="XPath Match"><con:configuration><path>declare namespace ns1='http://xmlns.oracle.com/pcbpel/adapter/db/dbQuery';
+declare namespace soap-env='http://schemas.xmlsoap.org/soap/envelope/';
+//ns1:dbQueryOutputCollection</path><content><![CDATA[<dbQueryOutputCollection xmlns="http://xmlns.oracle.com/pcbpel/adapter/db/dbQuery" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/">
+  <dbQueryOutput>
+    <employee_id>130</employee_id>
+    <employee_mgr_id>121</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Mozhe Atkinson</employee_name>
+    <e_salary>2800</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>192</employee_id>
+    <employee_mgr_id>123</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Sarah Bell</employee_name>
+    <e_salary>4000</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>129</employee_id>
+    <employee_mgr_id>121</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Laura Bissot</employee_name>
+    <e_salary>3300</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>185</employee_id>
+    <employee_mgr_id>121</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Alexis Bull</employee_name>
+    <e_salary>4100</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>187</employee_id>
+    <employee_mgr_id>121</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Anthony Cabrio</employee_name>
+    <e_salary>3000</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>188</employee_id>
+    <employee_mgr_id>122</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Kelly Chung</employee_name>
+    <e_salary>3800</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>142</employee_id>
+    <employee_mgr_id>124</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Curtis Davies</employee_name>
+    <e_salary>3100</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>186</employee_id>
+    <employee_mgr_id>121</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Julia Dellinger</employee_name>
+    <e_salary>3400</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>189</employee_id>
+    <employee_mgr_id>122</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Jennifer Dilly</employee_name>
+    <e_salary>3600</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>193</employee_id>
+    <employee_mgr_id>123</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Britney Everett</employee_name>
+    <e_salary>3900</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>197</employee_id>
+    <employee_mgr_id>124</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Kevin Feeney</employee_name>
+    <e_salary>3000</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>181</employee_id>
+    <employee_mgr_id>120</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Jean Fleaur</employee_name>
+    <e_salary>3100</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>121</employee_id>
+    <employee_mgr_id>100</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Adam Fripp</employee_name>
+    <e_salary>8200</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>190</employee_id>
+    <employee_mgr_id>122</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Timothy Gates</employee_name>
+    <e_salary>2900</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>135</employee_id>
+    <employee_mgr_id>122</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Ki Gee</employee_name>
+    <e_salary>2400</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>183</employee_id>
+    <employee_mgr_id>120</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Girard Geoni</employee_name>
+    <e_salary>2800</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>199</employee_id>
+    <employee_mgr_id>124</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Douglas Grant</employee_name>
+    <e_salary>2600</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>195</employee_id>
+    <employee_mgr_id>123</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Vance Jones</employee_name>
+    <e_salary>2800</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>122</employee_id>
+    <employee_mgr_id>100</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Payam Kaufling</employee_name>
+    <e_salary>7900</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>137</employee_id>
+    <employee_mgr_id>123</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Renske Ladwig</employee_name>
+    <e_salary>3600</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>127</employee_id>
+    <employee_mgr_id>120</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>James Landry</employee_name>
+    <e_salary>2400</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>133</employee_id>
+    <employee_mgr_id>122</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Jason Mallin</employee_name>
+    <e_salary>3300</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>128</employee_id>
+    <employee_mgr_id>120</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Steven Markle</employee_name>
+    <e_salary>2200</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>131</employee_id>
+    <employee_mgr_id>121</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>James Marlow</employee_name>
+    <e_salary>2500</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>143</employee_id>
+    <employee_mgr_id>124</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Randall Matos</employee_name>
+    <e_salary>2600</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>194</employee_id>
+    <employee_mgr_id>123</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Samuel McCain</employee_name>
+    <e_salary>3200</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>126</employee_id>
+    <employee_mgr_id>120</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Irene Mikkilineni</employee_name>
+    <e_salary>2700</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>124</employee_id>
+    <employee_mgr_id>100</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Kevin Mourgos</employee_name>
+    <e_salary>5800</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>125</employee_id>
+    <employee_mgr_id>120</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Julia Nayer</employee_name>
+    <e_salary>3200</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>198</employee_id>
+    <employee_mgr_id>124</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Donald OConnell</employee_name>
+    <e_salary>2600</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>132</employee_id>
+    <employee_mgr_id>121</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>TJ Olson</employee_name>
+    <e_salary>2100</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>140</employee_id>
+    <employee_mgr_id>123</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Joshua Patel</employee_name>
+    <e_salary>2500</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>191</employee_id>
+    <employee_mgr_id>122</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Randall Perkins</employee_name>
+    <e_salary>2500</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>136</employee_id>
+    <employee_mgr_id>122</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Hazel Philtanker</employee_name>
+    <e_salary>2200</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>141</employee_id>
+    <employee_mgr_id>124</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Trenna Rajs</employee_name>
+    <e_salary>3500</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>134</employee_id>
+    <employee_mgr_id>122</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Michael Rogers</employee_name>
+    <e_salary>2900</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>184</employee_id>
+    <employee_mgr_id>121</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Nandita Sarchand</employee_name>
+    <e_salary>4200</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>139</employee_id>
+    <employee_mgr_id>123</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>John Seo</employee_name>
+    <e_salary>2700</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>138</employee_id>
+    <employee_mgr_id>123</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Stephen Stiles</employee_name>
+    <e_salary>3200</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>182</employee_id>
+    <employee_mgr_id>120</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Martha Sullivan</employee_name>
+    <e_salary>2500</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>180</employee_id>
+    <employee_mgr_id>120</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Winston Taylor</employee_name>
+    <e_salary>3200</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>144</employee_id>
+    <employee_mgr_id>124</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Peter Vargas</employee_name>
+    <e_salary>2500</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>123</employee_id>
+    <employee_mgr_id>100</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Shanta Vollman</employee_name>
+    <e_salary>6500</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>196</employee_id>
+    <employee_mgr_id>124</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Alana Walsh</employee_name>
+    <e_salary>3100</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>120</employee_id>
+    <employee_mgr_id>100</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Matthew Weiss</employee_name>
+    <e_salary>8000</e_salary>
+  </dbQueryOutput>
+</dbQueryOutputCollection>]]></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="SOA" id="bce74dc6-eb98-4589-999a-cc6dc95f6004"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SOASimpleService</con:interface><con:operation>dbQuery</con:operation><con:request name="SOA" id="c39cc678-1895-43af-878e-86b242d3eb13"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://soa2admin2.example.com:8001/soa-infra/services/default/SimpleServiceProject/soadbbpel_client_ep</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:dbq="http://xmlns.oracle.com/pcbpel/adapter/db/dbQuery">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <dbq:dbQueryInput>
+         <dbq:department_id>50</dbq:department_id>
+      </dbq:dbQueryInput>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" id="87d861a6-5327-4e97-945d-48d21f98b039"/><con:assertion type="Schema Compliance" id="570707bf-f2c8-4404-a168-9ad97e37a51b"><con:configuration/></con:assertion><con:assertion type="SOAP Fault Assertion" id="a38cd293-c740-4a4a-ae5e-c4d0e52bca1d"/><con:assertion type="XPath Match" id="c90711c6-db05-4b60-b3a4-0dcc563e644c" name="XPath Match"><con:configuration><path>declare namespace env='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace instra='http://xmlns.oracle.com/sca/tracking/1.0';
+declare namespace ns1='http://xmlns.oracle.com/pcbpel/adapter/db/dbQuery';
+declare namespace wsa='http://www.w3.org/2005/08/addressing';
+//ns1:dbQueryOutputCollection</path><content><![CDATA[<dbQueryOutputCollection xmlns="http://xmlns.oracle.com/pcbpel/adapter/db/dbQuery" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/">
+  <dbQueryOutput>
+    <employee_id>130</employee_id>
+    <employee_mgr_id>121</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Mozhe Atkinson</employee_name>
+    <e_salary>2800</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>192</employee_id>
+    <employee_mgr_id>123</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Sarah Bell</employee_name>
+    <e_salary>4000</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>129</employee_id>
+    <employee_mgr_id>121</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Laura Bissot</employee_name>
+    <e_salary>3300</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>185</employee_id>
+    <employee_mgr_id>121</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Alexis Bull</employee_name>
+    <e_salary>4100</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>187</employee_id>
+    <employee_mgr_id>121</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Anthony Cabrio</employee_name>
+    <e_salary>3000</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>188</employee_id>
+    <employee_mgr_id>122</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Kelly Chung</employee_name>
+    <e_salary>3800</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>142</employee_id>
+    <employee_mgr_id>124</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Curtis Davies</employee_name>
+    <e_salary>3100</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>186</employee_id>
+    <employee_mgr_id>121</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Julia Dellinger</employee_name>
+    <e_salary>3400</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>189</employee_id>
+    <employee_mgr_id>122</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Jennifer Dilly</employee_name>
+    <e_salary>3600</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>193</employee_id>
+    <employee_mgr_id>123</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Britney Everett</employee_name>
+    <e_salary>3900</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>197</employee_id>
+    <employee_mgr_id>124</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Kevin Feeney</employee_name>
+    <e_salary>3000</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>181</employee_id>
+    <employee_mgr_id>120</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Jean Fleaur</employee_name>
+    <e_salary>3100</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>121</employee_id>
+    <employee_mgr_id>100</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Adam Fripp</employee_name>
+    <e_salary>8200</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>190</employee_id>
+    <employee_mgr_id>122</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Timothy Gates</employee_name>
+    <e_salary>2900</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>135</employee_id>
+    <employee_mgr_id>122</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Ki Gee</employee_name>
+    <e_salary>2400</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>183</employee_id>
+    <employee_mgr_id>120</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Girard Geoni</employee_name>
+    <e_salary>2800</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>199</employee_id>
+    <employee_mgr_id>124</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Douglas Grant</employee_name>
+    <e_salary>2600</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>195</employee_id>
+    <employee_mgr_id>123</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Vance Jones</employee_name>
+    <e_salary>2800</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>122</employee_id>
+    <employee_mgr_id>100</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Payam Kaufling</employee_name>
+    <e_salary>7900</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>137</employee_id>
+    <employee_mgr_id>123</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Renske Ladwig</employee_name>
+    <e_salary>3600</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>127</employee_id>
+    <employee_mgr_id>120</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>James Landry</employee_name>
+    <e_salary>2400</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>133</employee_id>
+    <employee_mgr_id>122</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Jason Mallin</employee_name>
+    <e_salary>3300</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>128</employee_id>
+    <employee_mgr_id>120</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Steven Markle</employee_name>
+    <e_salary>2200</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>131</employee_id>
+    <employee_mgr_id>121</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>James Marlow</employee_name>
+    <e_salary>2500</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>143</employee_id>
+    <employee_mgr_id>124</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Randall Matos</employee_name>
+    <e_salary>2600</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>194</employee_id>
+    <employee_mgr_id>123</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Samuel McCain</employee_name>
+    <e_salary>3200</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>126</employee_id>
+    <employee_mgr_id>120</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Irene Mikkilineni</employee_name>
+    <e_salary>2700</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>124</employee_id>
+    <employee_mgr_id>100</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Kevin Mourgos</employee_name>
+    <e_salary>5800</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>125</employee_id>
+    <employee_mgr_id>120</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Julia Nayer</employee_name>
+    <e_salary>3200</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>198</employee_id>
+    <employee_mgr_id>124</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Donald OConnell</employee_name>
+    <e_salary>2600</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>132</employee_id>
+    <employee_mgr_id>121</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>TJ Olson</employee_name>
+    <e_salary>2100</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>140</employee_id>
+    <employee_mgr_id>123</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Joshua Patel</employee_name>
+    <e_salary>2500</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>191</employee_id>
+    <employee_mgr_id>122</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Randall Perkins</employee_name>
+    <e_salary>2500</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>136</employee_id>
+    <employee_mgr_id>122</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Hazel Philtanker</employee_name>
+    <e_salary>2200</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>141</employee_id>
+    <employee_mgr_id>124</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Trenna Rajs</employee_name>
+    <e_salary>3500</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>134</employee_id>
+    <employee_mgr_id>122</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Michael Rogers</employee_name>
+    <e_salary>2900</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>184</employee_id>
+    <employee_mgr_id>121</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Nandita Sarchand</employee_name>
+    <e_salary>4200</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>139</employee_id>
+    <employee_mgr_id>123</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>John Seo</employee_name>
+    <e_salary>2700</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>138</employee_id>
+    <employee_mgr_id>123</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Stephen Stiles</employee_name>
+    <e_salary>3200</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>182</employee_id>
+    <employee_mgr_id>120</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Martha Sullivan</employee_name>
+    <e_salary>2500</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>180</employee_id>
+    <employee_mgr_id>120</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Winston Taylor</employee_name>
+    <e_salary>3200</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>144</employee_id>
+    <employee_mgr_id>124</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Peter Vargas</employee_name>
+    <e_salary>2500</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>123</employee_id>
+    <employee_mgr_id>100</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Shanta Vollman</employee_name>
+    <e_salary>6500</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>196</employee_id>
+    <employee_mgr_id>124</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Alana Walsh</employee_name>
+    <e_salary>3100</e_salary>
+  </dbQueryOutput>
+  <dbQueryOutput>
+    <employee_id>120</employee_id>
+    <employee_mgr_id>100</employee_mgr_id>
+    <department_mgr_id>121</department_mgr_id>
+    <d_department_name>Shipping</d_department_name>
+    <employee_name>Matthew Weiss</employee_name>
+    <e_salary>8000</e_salary>
+  </dbQueryOutput>
+</dbQueryOutputCollection>]]></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

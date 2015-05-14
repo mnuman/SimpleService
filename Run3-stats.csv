@@ -1,0 +1,4 @@
+Label,# Samples,Average,Median,90% Line,95% Line,99% Line,Min,Max,Error %,Throughput,KB/sec
+OSB-Request,1000,91,86,130,155,223,16,412,0.00%,33.3,391.2
+SOA-Request,1000,199,192,263,314,402,39,516,0.00%,33.2,416.9
+TOTAL,2000,145,134,236,266,377,16,516,0.00%,66.4,806.9

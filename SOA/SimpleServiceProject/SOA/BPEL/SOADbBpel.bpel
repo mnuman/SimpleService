@@ -1,0 +1,70 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<!--
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  Oracle JDeveloper BPEL Designer 
+  
+  Created: Fri May 08 20:36:48 CEST 2015
+  Author:  mnuman
+  Purpose: Synchronous BPEL Process
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+-->
+<process name="SOADbBpel"
+               targetNamespace="http://xmlns.oracle.com/SOASimpleServiceApp/SimpleServiceProject/SOADbBpel"
+               xmlns="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+               xmlns:client="http://xmlns.oracle.com/SOASimpleServiceApp/SimpleServiceProject/SOADbBpel"
+               xmlns:ora="http://schemas.oracle.com/xpath/extension"
+               xmlns:bpelx="http://schemas.oracle.com/bpel/extension"
+               xmlns:ns1="http://xmlns.oracle.com/pcbpel/adapter/db/SOASimpleServiceApp/SimpleServiceProject/dbQuery"
+               xmlns:bpel="http://docs.oasis-open.org/wsbpel/2.0/process/executable"
+         xmlns:ui="http://xmlns.oracle.com/soa/designer">
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      PARTNERLINKS                                                      
+      List of services participating in this BPEL process               
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/SOASimpleServiceApp/SimpleServiceProject/dbQuery"
+          location="../WSDLs/dbQuery.wsdl" importType="http://schemas.xmlsoap.org/wsdl/" ui:processWSDL="true"/>
+  <partnerLinks>
+    <!-- 
+      The 'client' role represents the requester of this service. It is 
+      used for callback. The location and correlation information associated
+      with the client role are automatically set using WS-Addressing.
+    -->
+    <partnerLink name="soadbbpel_client" partnerLinkType="ns1:dbQuery_plt" myRole="dbQuery_role"/>
+    <partnerLink name="dbQuery" partnerLinkType="ns1:dbQuery_plt" partnerRole="dbQuery_role"/>
+  </partnerLinks>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      VARIABLES                                                        
+      List of messages and XML documents used within this BPEL process 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <variables>
+    <!-- Reference to the message passed as input during initiation -->
+    <variable name="inputVariable" messageType="ns1:dbQueryInput_msg"/>
+
+    <!-- Reference to the message that will be returned to the requester-->
+    <variable name="outputVariable" messageType="ns1:dbQueryOutputCollection_msg"/>
+  </variables>
+
+  <!-- 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     ORCHESTRATION LOGIC                                               
+     Set of activities coordinating the flow of messages across the    
+     services integrated within this business process                  
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  -->
+  <sequence name="main">
+
+    <!-- Receive input from requestor. (Note: This maps to operation defined in SOADbBpel.wsdl) -->
+    <receive name="receiveInput" partnerLink="soadbbpel_client" portType="ns1:dbQuery_ptt" operation="dbQuery" variable="inputVariable" createInstance="yes"/>
+    <invoke name="invokeDbAdapter" partnerLink="dbQuery" portType="ns1:dbQuery_ptt"
+            operation="dbQuery" inputVariable="inputVariable" outputVariable="outputVariable"
+            bpelx:invokeAsDetail="no"/>
+    <!-- Generate reply to synchronous request -->
+    <reply name="replyOutput" partnerLink="soadbbpel_client" portType="ns1:dbQuery_ptt" operation="dbQuery" variable="outputVariable"/>
+  </sequence>
+</process>
